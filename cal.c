@@ -4,9 +4,9 @@
 #include <stdint.h>
 
 // 矩阵维度（示例值，可根据实际需求修改）
-#define M 2  // SRC1 的行数，SRC3 的行数
-#define N 3  // SRC1 的列数，SRC2 的行数
-#define P 2  // SRC2 的列数，SRC3 的列数
+#define M 8  // SRC1 的行数，SRC3 的行数
+#define N 16  // SRC1 的列数，SRC2 的行数
+#define P 32  // SRC2 的列数，SRC3 的列数
 
 // 读取 16 进制文件并转换为浮点数数组
 int read_hex_file(const char *filename, float *data, int expected_size) {
@@ -90,15 +90,15 @@ int main() {
     }
 
     // 读取输入文件
-    if (!read_hex_file("SRC1.txt", src1, M * N)) {
+    if (!read_hex_file("./Rand_input/SRC1.txt", src1, M * N)) {
         free(src1); free(src2); free(src3); free(result);
         return 1;
     }
-    if (!read_hex_file("SRC2.txt", src2, N * P)) {
+    if (!read_hex_file("./Rand_input/SRC2.txt", src2, N * P)) {
         free(src1); free(src2); free(src3); free(result);
         return 1;
     }
-    if (!read_hex_file("SRC3.txt", src3, M * P)) {
+    if (!read_hex_file("./Rand_input/SRC3.txt", src3, M * P)) {
         free(src1); free(src2); free(src3); free(result);
         return 1;
     }
@@ -110,7 +110,7 @@ int main() {
     matrix_add(result, src3, M, P);
 
     // 保存结果
-    save_hex_file("output.txt", result, M * P);
+    save_hex_file("./Result_data/c.txt", result, M * P);
 
     // 释放内存
     free(src1);

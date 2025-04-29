@@ -31,7 +31,7 @@ assert len(src3_data) == m * p, "SRC3.txt中的元素数量应为m*p"
 src3_matrix = src3_data.reshape(m, p)
 
 # 执行矩阵乘法并加上SRC3
-result_matrix = np.dot(src1_matrix, src2_matrix) + src3_matrix
+result_matrix = np.dot(src1_matrix, src2_matrix) #+ src3_matrix
 
 # 将结果展平为一维数组
 result_data = result_matrix.flatten()
